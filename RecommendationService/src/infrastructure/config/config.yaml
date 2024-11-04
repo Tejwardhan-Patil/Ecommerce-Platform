@@ -1,0 +1,222 @@
+# Configuration file for the Recommendation Service
+service:
+  name: RecommendationService
+  version: 1.0.0
+  environment: production
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    - console
+    - file
+  file:
+    path: /var/log/recommendation_service.log
+    max_size: 10MB
+    backup_count: 5
+
+# Database connection configuration
+database:
+  host: localhost
+  port: 5432
+  name: recommendation_db
+  user: dbuser
+  password: strongpassword
+  driver: postgresql
+  max_connections: 100
+  min_connections: 10
+  timeout: 30s
+  retry_attempts: 5
+  retry_interval: 200ms
+
+# API server configuration
+server:
+  host: 0.0.0.0
+  port: 8080
+  cors_enabled: true
+  cors_origins:
+    - http://website.com
+    - http://api.website.com
+  timeout: 60s
+  max_workers: 10
+
+# Model settings for the recommendation engine
+model:
+  type: collaborative_filtering
+  version: 2.1.0
+  training:
+    batch_size: 128
+    epochs: 10
+    learning_rate: 0.001
+    optimizer: adam
+    loss_function: mse
+  evaluation:
+    metrics:
+      - precision
+      - recall
+      - ndcg
+  save_path: /models/recommendation_model_v2.1.0.h5
+  auto_save: true
+
+# Preprocessing settings
+preprocessing:
+  scaling:
+    type: min_max
+    feature_range: [0, 1]
+  missing_values:
+    strategy: mean
+  categorical_encoding:
+    method: one_hot
+  feature_selection:
+    method: chi_squared
+    top_n_features: 50
+
+# Data source settings
+data_sources:
+  user_data:
+    path: /data/user_data.csv
+    format: csv
+    load_on_startup: true
+  product_data:
+    path: /data/product_data.csv
+    format: csv
+    load_on_startup: true
+  interaction_data:
+    path: /data/interaction_data.csv
+    format: csv
+    load_on_startup: true
+
+# Feature engineering settings
+feature_engineering:
+  user_profile_features:
+    - age
+    - gender
+    - location
+    - purchase_history
+  product_profile_features:
+    - category
+    - price
+    - rating
+    - availability
+
+# Cache configuration for recommendation service
+cache:
+  enabled: true
+  type: redis
+  host: cache.website.com
+  port: 6379
+  ttl: 600  # Time-to-live in seconds
+  max_size: 10000
+
+# Security configuration
+security:
+  api_keys:
+    - key: xxxxxxxxxxxxxxx
+      roles: admin
+    - key: yyyyyyyyyyyyyyy
+      roles: user
+  jwt:
+    secret: somesecretkey
+    algorithm: HS256
+    token_expiration: 3600
+  ssl:
+    enabled: true
+    certificate_file: /ssl/certs/recommendation_service.crt
+    key_file: /ssl/private/recommendation_service.key
+
+# Event bus configuration for handling events
+event_bus:
+  host: eventbus.website.com
+  port: 5672
+  exchange: recommendation_events
+  routing_key: recommendation.# 
+  consumers: 5
+
+# Event publisher settings
+event_publisher:
+  enabled: true
+  events:
+    - OrderPlaced
+    - ProductViewed
+  retry_attempts: 3
+  retry_interval: 500ms
+  timeout: 10s
+
+# Event subscriber settings
+event_subscriber:
+  enabled: true
+  subscriptions:
+    - UserRegistered
+    - ProductPurchased
+  queue_name: recommendation_queue
+  concurrency: 3
+
+# Email notification settings for sending recommendation reports
+email_notifications:
+  enabled: true
+  smtp_server: smtp.website.com
+  smtp_port: 587
+  from_address: noreply@website.com
+  to_address: reports@website.com
+  subject: "Weekly Recommendation Service Report"
+  body_template: /templates/recommendation_report.html
+  send_frequency: weekly
+
+# Metrics configuration for monitoring
+metrics:
+  enabled: true
+  type: prometheus
+  endpoint: /metrics
+  port: 9100
+  collect_interval: 10s
+
+# Backup settings for model and data
+backup:
+  enabled: true
+  type: s3
+  bucket: recommendation-service-backup
+  region: us-east-1
+  access_key: xxxxxxxx
+  secret_key: xxxxxxxx
+  backup_schedule: daily
+  backup_retention: 30d
+  max_backups: 7
+
+# Health check configuration
+health_check:
+  enabled: true
+  path: /health
+  interval: 30s
+  timeout: 2s
+  unhealthy_threshold: 3
+  healthy_threshold: 2
+
+# Alerts configuration
+alerts:
+  enabled: true
+  type: pagerduty
+  service_key: xxxxxxxx
+  incident_severity: critical
+  contact_emails:
+    - devops@website.com
+    - support@website.com
+
+# Dependencies for the RecommendationService
+dependencies:
+  - name: InventoryService
+    host: inventory.website.com
+    port: 8081
+  - name: OrderService
+    host: order.website.com
+    port: 8082
+
+# Endpoints for external services
+external_services:
+  fraud_detection:
+    url: https://fraud.website.com/api/v1/check
+    api_key: zzzzzzzzzzzzzzzzz
+    timeout: 5s
+  shipping_calculator:
+    url: https://shipping.website.com/api/v1/calculate
+    api_key: aaaaaaaaaaaaaaaaa
+    timeout: 3s

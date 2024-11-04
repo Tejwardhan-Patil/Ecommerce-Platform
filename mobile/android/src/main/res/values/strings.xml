@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Application name -->
+    <string name="app_name">E-commerce App</string>
+
+    <!-- Common UI strings -->
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_cart">Cart</string>
+    <string name="action_checkout">Checkout</string>
+
+    <!-- Login screen -->
+    <string name="login_title">Login</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="signup_prompt">Don't have an account? Sign up</string>
+
+    <!-- Sign Up screen -->
+    <string name="signup_title">Sign Up</string>
+    <string name="signup_name_hint">Name</string>
+    <string name="signup_email_hint">Email</string>
+    <string name="signup_password_hint">Password</string>
+    <string name="signup_button">Sign Up</string>
+
+    <!-- Product-related strings -->
+    <string name="product_name_label">Product Name</string>
+    <string name="product_price_label">Price</string>
+    <string name="product_description_label">Description</string>
+    <string name="add_to_cart_button">Add to Cart</string>
+    <string name="buy_now_button">Buy Now</string>
+
+    <!-- Cart screen -->
+    <string name="cart_title">Shopping Cart</string>
+    <string name="cart_empty_message">Your cart is empty</string>
+    <string name="cart_total_label">Total</string>
+    <string name="cart_checkout_button">Proceed to Checkout</string>
+
+    <!-- Checkout screen -->
+    <string name="checkout_title">Checkout</string>
+    <string name="checkout_shipping_address_label">Shipping Address</string>
+    <string name="checkout_payment_method_label">Payment Method</string>
+    <string name="checkout_place_order_button">Place Order</string>
+
+    <!-- Miscellaneous -->
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="success_order_placed">Your order has been placed successfully!</string>
+</resources>

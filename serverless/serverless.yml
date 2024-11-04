@@ -1,0 +1,84 @@
+service: ecommerce-platform
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: production
+  memorySize: 128
+  timeout: 10
+  environment:
+    DYNAMODB_TABLE_PRODUCTS: ProductsTable
+    DYNAMODB_TABLE_ORDERS: OrdersTable
+    S3_BUCKET: ecommerce-platform-bucket
+    S3_REGION: us-east-1
+
+functions:
+  handleFlashSale:
+    handler: functions/handleFlashSale.handler
+    events:
+      - http:
+          path: flash-sale
+          method: post
+          cors: true
+    environment:
+      DYNAMODB_TABLE_PRODUCTS: ${self:provider.environment.DYNAMODB_TABLE_PRODUCTS}
+      S3_BUCKET: ${self:provider.environment.S3_BUCKET}
+  
+  processOrder:
+    handler: functions/processOrderLambda.handler
+    events:
+      - http:
+          path: process-order
+          method: post
+          cors: true
+    environment:
+      DYNAMODB_TABLE_ORDERS: ${self:provider.environment.DYNAMODB_TABLE_ORDERS}
+      S3_BUCKET: ${self:provider.environment.S3_BUCKET}
+
+resources:
+  Resources:
+    ProductsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_PRODUCTS}
+        AttributeDefinitions:
+          - AttributeName: productId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: productId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    OrdersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_ORDERS}
+        AttributeDefinitions:
+          - AttributeName: orderId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: orderId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:provider.environment.S3_BUCKET}
+        AccessControl: Private
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+
+custom:
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+    stages:
+      - dev

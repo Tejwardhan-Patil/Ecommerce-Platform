@@ -1,0 +1,207 @@
+{
+    "inventory": [
+      {
+        "product_id": "P1001",
+        "name": "Wireless Mouse",
+        "description": "Ergonomic wireless mouse with adjustable DPI settings",
+        "category": "Electronics",
+        "price": 29.99,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 120,
+          "reserved_quantity": 10,
+          "warehouse_location": "A1-23",
+          "last_stock_update": "2024-09-10T12:34:56Z"
+        },
+        "supplier": {
+          "supplier_id": "S5001",
+          "name": "Tech Supply Co.",
+          "contact_email": "support@techsupply.com"
+        },
+        "dimensions": {
+          "length_cm": 12.5,
+          "width_cm": 6.8,
+          "height_cm": 3.7,
+          "weight_kg": 0.2
+        },
+        "status": "active",
+        "tags": ["wireless", "electronics", "mouse"],
+        "created_at": "2024-02-01T08:00:00Z",
+        "updated_at": "2024-09-10T12:34:56Z"
+      },
+      {
+        "product_id": "P1002",
+        "name": "Bluetooth Keyboard",
+        "description": "Compact Bluetooth keyboard with rechargeable battery",
+        "category": "Electronics",
+        "price": 45.50,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 85,
+          "reserved_quantity": 5,
+          "warehouse_location": "B2-12",
+          "last_stock_update": "2024-09-11T14:22:10Z"
+        },
+        "supplier": {
+          "supplier_id": "S5002",
+          "name": "OfficeTech Supplies",
+          "contact_email": "support@officetech.com"
+        },
+        "dimensions": {
+          "length_cm": 28.5,
+          "width_cm": 12.0,
+          "height_cm": 1.8,
+          "weight_kg": 0.45
+        },
+        "status": "active",
+        "tags": ["keyboard", "bluetooth", "electronics"],
+        "created_at": "2024-01-15T08:00:00Z",
+        "updated_at": "2024-09-11T14:22:10Z"
+      },
+      {
+        "product_id": "P1003",
+        "name": "Gaming Headset",
+        "description": "Surround sound gaming headset with built-in microphone",
+        "category": "Gaming",
+        "price": 79.99,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 65,
+          "reserved_quantity": 8,
+          "warehouse_location": "C3-45",
+          "last_stock_update": "2024-09-12T09:18:30Z"
+        },
+        "supplier": {
+          "supplier_id": "S5003",
+          "name": "GameGear Ltd.",
+          "contact_email": "support@gamegear.com"
+        },
+        "dimensions": {
+          "length_cm": 19.0,
+          "width_cm": 17.5,
+          "height_cm": 10.0,
+          "weight_kg": 0.35
+        },
+        "status": "active",
+        "tags": ["gaming", "headset", "electronics"],
+        "created_at": "2024-01-01T08:00:00Z",
+        "updated_at": "2024-09-12T09:18:30Z"
+      },
+      {
+        "product_id": "P1004",
+        "name": "External Hard Drive 1TB",
+        "description": "Portable 1TB external hard drive with USB 3.0 interface",
+        "category": "Storage",
+        "price": 59.99,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 200,
+          "reserved_quantity": 15,
+          "warehouse_location": "D4-33",
+          "last_stock_update": "2024-09-13T11:30:50Z"
+        },
+        "supplier": {
+          "supplier_id": "S5004",
+          "name": "DataStorage Solutions",
+          "contact_email": "support@datastorage.com"
+        },
+        "dimensions": {
+          "length_cm": 11.0,
+          "width_cm": 7.8,
+          "height_cm": 1.2,
+          "weight_kg": 0.18
+        },
+        "status": "active",
+        "tags": ["storage", "hard drive", "electronics"],
+        "created_at": "2024-01-10T08:00:00Z",
+        "updated_at": "2024-09-13T11:30:50Z"
+      },
+      {
+        "product_id": "P1005",
+        "name": "Smartwatch",
+        "description": "Smartwatch with heart rate monitor and GPS",
+        "category": "Wearables",
+        "price": 129.99,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 150,
+          "reserved_quantity": 20,
+          "warehouse_location": "E5-15",
+          "last_stock_update": "2024-09-10T10:45:12Z"
+        },
+        "supplier": {
+          "supplier_id": "S5005",
+          "name": "WearableTech Inc.",
+          "contact_email": "support@wearabletech.com"
+        },
+        "dimensions": {
+          "length_cm": 4.2,
+          "width_cm": 4.2,
+          "height_cm": 1.1,
+          "weight_kg": 0.06
+        },
+        "status": "active",
+        "tags": ["wearable", "smartwatch", "electronics"],
+        "created_at": "2024-02-01T08:00:00Z",
+        "updated_at": "2024-09-10T10:45:12Z"
+      },
+      {
+        "product_id": "P1006",
+        "name": "Noise-Canceling Headphones",
+        "description": "Over-ear noise-canceling headphones with Bluetooth connectivity",
+        "category": "Audio",
+        "price": 199.99,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 75,
+          "reserved_quantity": 12,
+          "warehouse_location": "F6-27",
+          "last_stock_update": "2024-09-12T08:30:00Z"
+        },
+        "supplier": {
+          "supplier_id": "S5006",
+          "name": "AudioTech Systems",
+          "contact_email": "support@audiotech.com"
+        },
+        "dimensions": {
+          "length_cm": 18.5,
+          "width_cm": 17.0,
+          "height_cm": 9.5,
+          "weight_kg": 0.32
+        },
+        "status": "active",
+        "tags": ["headphones", "audio", "electronics"],
+        "created_at": "2024-03-15T08:00:00Z",
+        "updated_at": "2024-09-12T08:30:00Z"
+      },
+      {
+        "product_id": "P1007",
+        "name": "USB-C Charging Cable",
+        "description": "1.5 meter long USB-C to USB-A charging cable",
+        "category": "Accessories",
+        "price": 12.99,
+        "currency": "USD",
+        "stock_level": {
+          "available_quantity": 300,
+          "reserved_quantity": 25,
+          "warehouse_location": "G7-19",
+          "last_stock_update": "2024-09-11T13:15:00Z"
+        },
+        "supplier": {
+          "supplier_id": "S5007",
+          "name": "CableTech Manufacturing",
+          "contact_email": "support@cabletech.com"
+        },
+        "dimensions": {
+          "length_cm": 150.0,
+          "width_cm": 0.6,
+          "height_cm": 0.6,
+          "weight_kg": 0.05
+        },
+        "status": "active",
+        "tags": ["charging cable", "USB-C", "electronics"],
+        "created_at": "2024-02-01T08:00:00Z",
+        "updated_at": "2024-09-11T13:15:00Z"
+      }
+    ]
+  }  

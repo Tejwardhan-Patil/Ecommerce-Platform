@@ -1,0 +1,34 @@
+rootProject.name = "EcommerceApp"
+
+include ':app'
+include ':inventory'
+include ':orders'
+include ':payment'
+include ':notifications'
+
+project(':inventory').projectDir = new File(rootDir, '../InventoryService/android')
+project(':orders').projectDir = new File(rootDir, '../OrderService/android')
+project(':payment').projectDir = new File(rootDir, '../PaymentService/android')
+project(':notifications').projectDir = new File(rootDir, '../NotificationService/android')
+
+// Dependency management configuration
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Include jcenter
+    }
+}
+
+// Enabling feature previews
+enableFeaturePreview('TYPESAFE_PROJECT_ACCESSORS')
+enableFeaturePreview('VERSION_CATALOGS')

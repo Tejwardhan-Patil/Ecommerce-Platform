@@ -1,0 +1,24 @@
+# Use an official image as a parent image
+FROM openjdk:17-jdk-alpine
+
+# Set environment variables
+ENV APP_HOME /usr/src/app
+
+# Set the working directory inside the container
+WORKDIR $APP_HOME
+
+# Copy the pom.xml and install dependencies
+COPY ./pom.xml ./ 
+RUN mvn dependency:go-offline
+
+# Copy the rest of the application code
+COPY ./src ./src
+
+# Package the application
+RUN mvn clean package
+
+# Expose the port the application will run on
+EXPOSE 8080
+
+# Command to run the application
+CMD ["java", "-jar", "target/application.jar"]
